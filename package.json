@@ -1,4 +1,5 @@
 {
+  "name": "mapbox_express_app",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
