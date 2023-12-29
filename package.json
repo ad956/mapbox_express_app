@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.15.0",
     "cloudinary": "^1.35.0",
