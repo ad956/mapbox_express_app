@@ -1,0 +1,33 @@
+<%- include('header.ejs') %>
+<center>
+  <h2>Displaying map</h2>
+  <div id="map" class="map-box"></div>
+  <h3><%- loc %></h3>
+</center>
+<script>
+  console.log("jhjjhjnhjnjnnjjnj");
+  const cood = "<%- coordinates %>";
+  const coord = cood.split(",");
+  parseInt(coord);
+  mapboxgl.accessToken = "<%= process.env.MAPBOXTOKEN%>";
+  const map = new mapboxgl.Map({
+    container: "map", // container ID
+    style: "mapbox://styles/mapbox/satellite-streets-v12", //"mapbox://styles/mapbox/streets-v12", // style URL
+    center: coord, //[-74.5, 40], // starting position [lng, lat]
+    zoom: 6, // starting zoom
+  });
+
+  new mapboxgl.Marker({
+    draggable: true,
+  })
+    .setLngLat(coord)
+    .setPopup(
+      new mapboxgl.Popup({ offset: 35 }).setHTML(
+        `<h3 style="color:#000"> <%- loc %></h3>`
+      )
+    )
+    .addTo(map);
+
+  map.addControl(new mapboxgl.NavigationControl());
+</script>
+<%- include('footer.ejs') %>

@@ -1,0 +1,12 @@
+<%- include('header.ejs') %>
+<form action="/upload" enctype="multipart/form-data" method="post">
+  <div class="center-content">
+    <div class="give-space">Enter name : <input type="text" name="name" /></div>
+    <div class="give-space">
+      <input type="file" name="img" id="imgs" multiple />
+      <!-- to send imgs use multiple attribute  -->
+    </div>
+    <button type="submit" class="btn">upload</button>
+  </div>
+</form>
+<%- include('footer.ejs') %>
